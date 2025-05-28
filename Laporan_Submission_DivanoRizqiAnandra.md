@@ -28,19 +28,19 @@ Penelitian oleh Alzubaidi et al. (2023) menunjukkan bahwa penggunaan algoritma p
 Dengan perubahan iklim yang semakin ekstrem, sistem klasifikasi cuaca yang cepat dan akurat menjadi bagian penting dari mitigasi risiko bencana dan adaptasi terhadap kondisi lingkungan yang berubah.
 
 2. *Bagaimana Masalah Ini Dapat Diselesaikan*
-1. Pemanfaatan Data Historis Cuaca
+* Pemanfaatan Data Historis Cuaca
 Dataset yang terdiri dari fitur-fitur meteorologis seperti suhu, kelembapan, kecepatan angin, tekanan udara, dan visibilitas digunakan sebagai input untuk melatih model klasifikasi. Label cuaca (‘weather type’) digunakan sebagai target klasifikasi.
 
-2. Penerapan Teknik Pra-pemrosesan Data
+* Penerapan Teknik Pra-pemrosesan Data
 Data numerik distandarisasi agar memiliki skala yang seragam, dan data kategorikal dikonversi menggunakan teknik one-hot encoding. Hal ini memastikan bahwa model machine learning dapat memahami struktur data dengan optimal.
 
-3. Pelatihan Model dengan Algoritma Supervised Learning
+* Pelatihan Model dengan Algoritma Supervised Learning
 Berbagai algoritma seperti Logistic Regression, XGBoost, Random Forest, dan Gaussian Naive Bayes digunakan untuk membangun model klasifikasi. Model-model ini dilatih menggunakan subset data latih dan dievaluasi menggunakan data uji yang telah disiapkan sebelumnya.
 
-4. Optimasi Model melalui Hyperparameter Tuning
+* Optimasi Model melalui Hyperparameter Tuning
 GridSearchCV digunakan untuk menyetel parameter optimal dari masing-masing model agar performanya maksimal. Ini memungkinkan pemilihan konfigurasi terbaik secara sistematis berdasarkan skor akurasi validasi silang.
 
-5. Evaluasi Performa Model secara Kuantitatif
+* Evaluasi Performa Model secara Kuantitatif
 Model dievaluasi menggunakan metrik akurasi dan ROC AUC Score (strategi One-vs-Rest) untuk mengukur kemampuan klasifikasi multi-kelas. Model dengan performa terbaik dapat diadopsi untuk diterapkan secara nyata.
 
 Alzubaidi, K. S., Alzubaidi, M. A., & Alzubaidi, M. A. (2023). Classification of weather conditions based on supervised learning techniques. Atmosphere, 14(7), 1174. https://doi.org/10.3390/atmos14071174
