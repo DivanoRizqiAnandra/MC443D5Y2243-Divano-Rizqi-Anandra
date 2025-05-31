@@ -51,16 +51,7 @@ Ribeiro, M. T., Singh, S., & Guestrin, C. (2024). Interpretable Machine Learning
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
 Bagian laporan ini mencakup:
-
-### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
-- Bagaimana membangun model klasifikasi yang akurat untuk mengidentifikasi jenis cuaca berdasarkan variabel meteorologis seperti suhu, kelembapan, kecepatan angin, tekanan atmosfer, dan visibilitas?
-- Algoritma supervised learning mana yang memberikan performa terbaik dalam melakukan klasifikasi terhadap data cuaca, dilihat dari metrik evaluasi seperti akurasi dan ROC AUC Score?
-- Bagaimana proses optimasi hyperparameter menggunakan GridSearchCV dapat meningkatkan performa model klasifikasi cuaca?
 
 ### Goals
 
@@ -68,9 +59,6 @@ Menjelaskan tujuan dari pernyataan masalah:
 - Membangun model klasifikasi yang mampu mengidentifikasi jenis cuaca secara akurat menggunakan data meteorologis yang tersedia, sehingga dapat membantu dalam prediksi kondisi cuaca secara otomatis.
 - Membandingkan performa berbagai algoritma supervised learning seperti Logistic Regression, XGBoost, Random Forest, dan Gaussian Naive Bayes untuk menentukan metode yang paling efektif dalam klasifikasi cuaca.
 - Melakukan optimasi hyperparameter pada model-model yang dipilih menggunakan teknik GridSearchCV guna memperoleh konfigurasi terbaik yang meningkatkan akurasi dan kestabilan prediksi.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
 
 ### Solution statements
 - Membangun beberapa model klasifikasi supervised learning menggunakan algoritma Logistic Regression, XGBoost, Random Forest, dan Gaussian Naive Bayes berdasarkan dataset meteorologis dengan fitur-fitur utama cuaca.
@@ -148,7 +136,6 @@ Pada tahap ini, dilakukan beberapa proses untuk mempersiapkan data agar dapat di
 
 ## Modeling
 Pada tahap ini dilakukan pembangunan dan evaluasi beberapa model klasifikasi untuk memprediksi jenis cuaca berdasarkan fitur-fitur meteorologis. Algoritma machine learning yang digunakan adalah:
-
 
 ### 1. Logistic Regression
 
