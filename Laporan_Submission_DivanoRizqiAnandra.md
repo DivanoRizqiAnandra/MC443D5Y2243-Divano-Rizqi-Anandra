@@ -55,7 +55,6 @@ Bagian laporan ini mencakup:
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
 - Membangun model klasifikasi yang mampu mengidentifikasi jenis cuaca secara akurat menggunakan data meteorologis yang tersedia, sehingga dapat membantu dalam prediksi kondisi cuaca secara otomatis.
 - Membandingkan performa berbagai algoritma supervised learning seperti Logistic Regression, XGBoost, Random Forest, dan Gaussian Naive Bayes untuk menentukan metode yang paling efektif dalam klasifikasi cuaca.
 - Melakukan optimasi hyperparameter pada model-model yang dipilih menggunakan teknik GridSearchCV guna memperoleh konfigurasi terbaik yang meningkatkan akurasi dan kestabilan prediksi.
@@ -69,8 +68,6 @@ Menjelaskan tujuan dari pernyataan masalah:
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [Weather Type Classification](https://www.kaggle.com/datasets/nikhil7280/weather-type-classification/data).
-
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
 ### Variabel-variabel pada Weather Type Classification dataset adalah sebagai berikut:
 - Temperature (numeric): Menunjukkan suhu dalam derajat Celsius, mencakup kondisi dari sangat dingin hingga sangat panas.
