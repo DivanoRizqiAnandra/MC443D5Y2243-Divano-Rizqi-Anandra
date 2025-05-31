@@ -104,7 +104,7 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
     Melihat beberapa baris pertama (head) dari dataset untuk memahami jenis data dan format tiap kolom.
 2. Informasi Umum Dataset
 
-    * Menggunakan fungsi seperti info() untuk mengetahui jumlah baris, kolom, tipe data, dan nilai null.
+    * Menggunakan fungsi seperti info() untuk mengetahui jumlah baris, kolom, tipe data, dan nilai null. Data yang digunakan memiliki 13200 baris dan memiliki 11 kolom antara lain Temperature, Humidity, Wind Speed, Precipitation (%), Cloud Cover, Atmospheric Pressure, UV Index, Season, Visibility (km), Location, Weather Type dan tidak memiliki nilai null
 
     * Mengetahui proporsi data kategorikal vs numerik.
 3. Statistik Deskriptif
@@ -112,7 +112,7 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
     Menggunakan describe() untuk memperoleh ringkasan statistik seperti mean, median, standard deviation, nilai minimum dan maksimum dari fitur numerik.
 4. Pemeriksaan Nilai Kosong atau Duplikat
 
-    Mengecek apakah ada data yang hilang (missing values) dan data yang duplikat yang mungkin memengaruhi analisis.
+    Mengecek apakah ada data yang hilang (missing values) dan data yang duplikat yang mungkin memengaruhi analisis. pada pengecekan missing value dan data duplikat, diketahui bahwa data yang digunakan tidak memiliki missing value dan data duplikat.
 5. Analisis Distribusi Variabel
 
     * Melihat distribusi setiap fitur numerik melalui histogram, boxplot, atau density plot.
@@ -137,67 +137,120 @@ Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
 ## Data Preparation
 Pada tahap ini, dilakukan beberapa proses untuk mempersiapkan data agar dapat digunakan oleh algoritma machine learning secara optimal. Proses ini mencakup encoding, pembagian data, dan normalisasi fitur numerik.
 
-1. Encoding Variabel Kategorikal (One-Hot Encoding)
-    Mengubah fitur kategorikal menjadi representasi numerik dengan teknik one-hot encoding. Algoritma machine learning umumnya tidak dapat memproses data non-numerik secara langsung. One-hot encoding membuat setiap kategori menjadi fitur biner.
+1. Train-Test-Split
+   Data dibagi menjadi data latih (70%) dan data uji (30%). stratify=y_encoded digunakan agar proporsi label target tetap seimbang antara train dan test set. Memisahkan data untuk evaluasi model agar tidak overfitting.
+1. Encoding Variabel Kategorikal (Ordinal Encoding)
+    Ordinal encoding adalah teknik pra-pemrosesan yang digunakan untuk mengubah fitur kategorikal menjadi nilai numerik dengan menggantikan setiap kategori dengan bilangan bulat. Dalam proyek ini, fitur 'Cloud Cover', 'Season', dan 'Location' dienkode menggunakan OrdinalEncoder dari library feature-engine dengan metode arbitrary, yang memberikan angka unik secara acak untuk setiap kategori tanpa mengasumsikan adanya urutan tertentu. Pendekatan ini dipilih karena sederhana, efisien, dan sesuai untuk model pembelajaran mesin berbasis pohon seperti Random Forest dan XGBoost, yang tidak sensitif terhadap skala nilai numerik. Namun, perlu kehati-hatian jika digunakan bersama model linier seperti Logistic Regression karena bisa menimbulkan asumsi urutan yang tidak sesuai dengan makna asli data.
 2. Encoding Target Label (Label Encoding)
     engubah label target dari kategori menjadi angka (misalnya "Rainy" → 0, "Sunny" → 1, dst). Label dalam bentuk teks tidak dapat digunakan secara langsung dalam klasifikasi. Encoding ini memungkinkan algoritma memahami target.
-3. Train-Test-Split
-    Data dibagi menjadi data latih (70%) dan data uji (30%). stratify=y_encoded digunakan agar proporsi label target tetap seimbang antara train dan test set. Memisahkan data untuk evaluasi model agar tidak overfitting.
 4. Standardisasi Fitur Numerik (Feature Scaling)
     Mengubah fitur numerik agar memiliki rata-rata 0 dan standar deviasi 1. Beberapa algoritma (misalnya KNN, SVM, Regresi Logistik) sensitif terhadap skala fitur. Standardisasi memastikan semua fitur berada pada skala yang sama.
 
 ## Modeling
 Pada tahap ini dilakukan pembangunan dan evaluasi beberapa model klasifikasi untuk memprediksi jenis cuaca berdasarkan fitur-fitur meteorologis. Algoritma machine learning yang digunakan adalah:
-1. Logistic Regression
-   * Parameter yang dioptimasi:
-     * C: regularisasi (nilai: 0.1, 1, 10)
-     * solver: metode optimasi (liblinear, saga)
-    * Kelebihan:
-      * Sederhana dan cepat dilatih
-      * Mudah diinterpretasikan
-      * Cocok untuk data linier
-    * Kekurangan:
-      * Tidak bekerja optimal untuk hubungan non-linear antar fitur
-      * Sensitif terhadap outlier
-    * Akurasi: 0.869
 
-2. XGBoost (Extreme Gradient Boosting)
-    * Parameter yang dioptimasi:
-        * n_estimators: jumlah pohon (50, 100, 200)
-        * learning_rate: laju pembelajaran (0.01, 0.1, 0.2)
-        * max_depth: kedalaman pohon (3, 6, 9)
-    * Kelebihan:
-        * Performa tinggi, cocok untuk data kompleks
-        * Menangani missing value dan overfitting dengan baik
-        * Mendukung paralelisasi
-    * Kekurangan:
-        * Waktu pelatihan lebih lama
-        * Lebih sulit untuk diinterpretasikan
-    * Akurasi: 0.9111
-3. Random Forest
-    * Parameter yang dioptimasi:
-        * n_estimators: jumlah pohon (50, 100, 200)
-        * max_depth: batas kedalaman pohon (None, 10, 20, 30)
-    * Kelebihan:
-        * Robust terhadap overfitting
-        * Dapat menangani data numerik dan kategorikal
-        * Memberikan estimasi pentingnya fitur
-    * Kekurangan:
-        * Interpretasi model sulit
-        * Bisa lambat saat prediksi pada data besar
-    * Akurasi:  0.9114
-4. Gaussian Naive Bayes
-    * Parameter: Tidak memerlukan tuning hyperparameter
-    * Kelebihan:
-        * Cepat dan efisien, terutama untuk dataset besar
-        * Bekerja baik dengan asumsi independensi antar fitur
-    * Kekurangan:
-        * Asumsi fitur independen sering tidak realistis
-        * Kurang akurat pada data kompleks
-    * Akurasi: 0.8247
+
+### 1. Logistic Regression
+
+**Cara Kerja:**  
+Logistic Regression adalah algoritma klasifikasi linier yang memodelkan probabilitas keanggotaan suatu kelas menggunakan fungsi sigmoid. Model menghitung kombinasi linier dari fitur, lalu mengubahnya menjadi probabilitas melalui fungsi logistik.
+
+**Parameter yang Dioptimasi:**
+- `C`: Parameter regularisasi yang mengontrol kompleksitas model (nilai: 0.1, 1, 10). Semakin kecil nilainya, semakin kuat regularisasi.
+- `solver`: Metode optimasi yang digunakan (liblinear, saga).
+
+**Parameter Terbaik**
+- `C` : 10
+- `solver` : saga
+
+**Kelebihan:**
+- Sederhana dan cepat dilatih.
+- Mudah diinterpretasikan.
+- Cocok untuk data dengan hubungan linier antar fitur.
+
+**Kekurangan:**
+- Tidak bekerja optimal untuk hubungan non-linear antar fitur.
+- Sensitif terhadap outlier.
+
+**Akurasi:** 0.866
+
+---
+
+### 2. XGBoost (Extreme Gradient Boosting)
+
+**Cara Kerja:**  
+XGBoost adalah algoritma boosting berbasis pohon keputusan yang membangun model secara bertahap. Setiap pohon baru berusaha mengoreksi kesalahan dari pohon sebelumnya menggunakan pendekatan *gradient descent*. Dilengkapi dengan regularisasi untuk mencegah overfitting.
+
+**Parameter yang Dioptimasi:**
+- `n_estimators`: Jumlah pohon (50, 100, 200).
+- `learning_rate`: Laju pembelajaran (0.01, 0.1, 0.2).
+- `max_depth`: Kedalaman pohon (3, 6, 9).
+
+**Parameter Terbaik**
+- `learning_rate`: ( 0.1 )
+- `max_depth`: ( 3 )
+- `n_estimators`: ( 100 )
+  
+**Kelebihan:**
+- Performa tinggi, cocok untuk data kompleks.
+- Menangani missing value dan overfitting dengan baik.
+- Mendukung paralelisasi.
+
+**Kekurangan:**
+- Waktu pelatihan relatif lama.
+- Lebih sulit diinterpretasikan.
+
+**Akurasi:** 0.9122
+
+---
+
+### 3. Random Forest
+
+**Cara Kerja:**  
+Random Forest adalah ensemble dari banyak pohon keputusan. Setiap pohon dilatih pada subset acak dari data dan fitur. Prediksi akhir diambil dari mayoritas voting (klasifikasi) atau rata-rata (regresi).
+
+**Parameter yang Dioptimasi:**
+- `n_estimators`: Jumlah pohon (50, 100, 200).
+- `max_depth`: Kedalaman maksimum pohon (None, 10, 20, 30).
+
+**Parameter Terbaik**
+- `max_depth`: ( 10 )
+- `n_estimators`: ( 200 )
+
+**Kelebihan:**
+- Tahan terhadap overfitting.
+- Dapat menangani data numerik dan kategorikal.
+- Menyediakan estimasi pentingnya fitur.
+
+**Kekurangan:**
+- Interpretasi model sulit.
+- Proses prediksi bisa lambat untuk dataset besar.
+
+**Akurasi:** 0.9123
+
+---
+
+### 4. Gaussian Naive Bayes
+
+**Cara Kerja:**  
+Gaussian Naive Bayes adalah model probabilistik yang menggunakan Teorema Bayes dengan asumsi bahwa fitur saling independen. Distribusi Gaussian (normal) digunakan untuk memodelkan fitur numerik.
+
+**Parameter:**
+- Tidak memerlukan tuning hyperparameter.
+
+**Kelebihan:**
+- Cepat dan efisien, terutama untuk dataset besar.
+- Cocok untuk data dengan fitur yang relatif independen.
+
+**Kekurangan:**
+- Asumsi independensi sering tidak terpenuhi.
+- Kurang akurat pada data kompleks.
+
+**Akurasi:** 0.868
+
 
 *Model Terbaik*
-Berdasarkan hasil evaluasi dengan metrik akurasi dan ROC AUC Score, model Random Forest dipilih sebagai model terbaik. Meskipun XGBoost memiliki skor yang sangat mirip, Random Forest unggul sedikit pada ROC AUC Score (0.9934) dan memberikan hasil yang stabil dengan waktu pelatihan yang relatif lebih cepat pada dataset ini.
+Berdasarkan hasil evaluasi dengan metrik akurasi dan ROC AUC Score, model Random Forest dipilih sebagai model terbaik. Meskipun XGBoost memiliki skor yang sangat mirip, Random Forest unggul sedikit pada ROC AUC Score (0.9948) dan memberikan hasil yang stabil dengan waktu pelatihan yang relatif lebih cepat pada dataset ini.
 
 Selain itu, Random Forest juga lebih sederhana dalam tuning parameter dibandingkan XGBoost, sehingga lebih praktis untuk implementasi dalam sistem klasifikasi cuaca secara real-time.
 
@@ -232,13 +285,13 @@ Kedua metrik ini dipilih karena:
 Berikut adalah hasil evaluasi dari keempat model yang digunakan:
 | **Model**            | **Akurasi** | **ROC AUC Score (OvR, Macro)** |
 | -------------------- | ----------- | ------------------------------ |
-| Logistic Regression  | 0.8694      | 0.9597                         |
-| XGBoost              | 0.9111      | 0.9932                         |
-| Random Forest        | **0.9114**  | **0.9934**                     |
-| Gaussian Naive Bayes | 0.8247      | 0.9359                         |
+| Logistic Regression  | 0.8667      | 0.9479                         |
+| XGBoost              | 0.9122      | 0.9941                         |
+| Random Forest        | **0.9123**  | **0.9948**                     |
+| Gaussian Naive Bayes | 0.8681      | 0.9456                        |
 
 4. Interpretasi Hasil
-   * Random Forest memberikan performa terbaik secara keseluruhan, dengan akurasi tertinggi (91.14%) dan ROC AUC Score tertinggi (0.9934).
+   * Random Forest memberikan performa terbaik secara keseluruhan, dengan akurasi tertinggi (91.23%) dan ROC AUC Score tertinggi (0.9948).
    * XGBoost menunjukkan hasil yang sangat kompetitif, hanya sedikit di bawah Random Forest.
    * Logistic Regression juga bekerja cukup baik, namun kurang akurat dibandingkan dua model di atas.
    * Gaussian Naive Bayes menjadi yang paling sederhana namun memiliki performa paling rendah, menunjukkan keterbatasannya pada data kompleks.
