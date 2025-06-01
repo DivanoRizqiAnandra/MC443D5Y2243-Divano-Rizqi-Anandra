@@ -126,13 +126,17 @@ Pada tahap ini, dilakukan beberapa proses untuk mempersiapkan data agar dapat di
 
    Proses ini adalah bagian penting dari data cleaning. Dengan menerapkan capping, Anda memastikan data lebih stabil dan representatif, terutama untuk keperluan pemodelan statistik atau machine learning.
 1. Train-Test-Split
+
    Data dibagi menjadi data latih (70%) dan data uji (30%). stratify=y_encoded digunakan agar proporsi label target tetap seimbang antara train dan test set. Memisahkan data untuk evaluasi model agar tidak overfitting.
 1. Encoding Variabel Kategorikal (Ordinal Encoding)
-    Ordinal encoding adalah teknik pra-pemrosesan yang digunakan untuk mengubah fitur kategorikal menjadi nilai numerik dengan menggantikan setiap kategori dengan bilangan bulat. Dalam proyek ini, fitur 'Cloud Cover', 'Season', dan 'Location' dienkode menggunakan OrdinalEncoder dari library feature-engine dengan metode arbitrary, yang memberikan angka unik secara acak untuk setiap kategori tanpa mengasumsikan adanya urutan tertentu. Pendekatan ini dipilih karena sederhana, efisien, dan sesuai untuk model pembelajaran mesin berbasis pohon seperti Random Forest dan XGBoost, yang tidak sensitif terhadap skala nilai numerik. Namun, perlu kehati-hatian jika digunakan bersama model linier seperti Logistic Regression karena bisa menimbulkan asumsi urutan yang tidak sesuai dengan makna asli data.
-2. Encoding Target Label (Label Encoding)
-    engubah label target dari kategori menjadi angka (misalnya "Rainy" → 0, "Sunny" → 1, dst). Label dalam bentuk teks tidak dapat digunakan secara langsung dalam klasifikasi. Encoding ini memungkinkan algoritma memahami target.
-4. Standardisasi Fitur Numerik (Feature Scaling)
-    Mengubah fitur numerik agar memiliki rata-rata 0 dan standar deviasi 1. Beberapa algoritma (misalnya KNN, SVM, Regresi Logistik) sensitif terhadap skala fitur. Standardisasi memastikan semua fitur berada pada skala yang sama.
+
+   Ordinal encoding adalah teknik pra-pemrosesan yang digunakan untuk mengubah fitur kategorikal menjadi nilai numerik dengan menggantikan setiap kategori dengan bilangan bulat. Dalam proyek ini, fitur 'Cloud Cover', 'Season', dan 'Location' dienkode menggunakan OrdinalEncoder dari library feature-engine dengan metode arbitrary, yang memberikan angka unik secara acak untuk setiap kategori tanpa mengasumsikan adanya urutan tertentu. Pendekatan ini dipilih karena sederhana, efisien, dan sesuai untuk model pembelajaran mesin berbasis pohon seperti Random Forest dan XGBoost, yang tidak sensitif terhadap skala nilai numerik. Namun, perlu kehati-hatian jika digunakan bersama model linier seperti Logistic Regression karena bisa menimbulkan asumsi urutan yang tidak sesuai dengan makna asli data.
+3. Encoding Target Label (Label Encoding)
+
+   Mengubah label target dari kategori menjadi angka (misalnya "Rainy" → 0, "Sunny" → 1, dst). Label dalam bentuk teks tidak dapat digunakan secara langsung dalam klasifikasi. Encoding ini memungkinkan algoritma memahami target.
+5. Standardisasi Fitur Numerik (Feature Scaling)
+
+   Mengubah fitur numerik agar memiliki rata-rata 0 dan standar deviasi 1. Beberapa algoritma (misalnya KNN, SVM, Regresi Logistik) sensitif terhadap skala fitur. Standardisasi memastikan semua fitur berada pada skala yang sama.
 
 ## Modeling
 Pada tahap ini dilakukan pembangunan dan evaluasi beberapa model klasifikasi untuk memprediksi jenis cuaca berdasarkan fitur-fitur meteorologis. Algoritma machine learning yang digunakan adalah:
