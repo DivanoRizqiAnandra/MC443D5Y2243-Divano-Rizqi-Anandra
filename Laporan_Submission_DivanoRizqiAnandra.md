@@ -123,6 +123,7 @@ Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan d
 Pada tahap ini, dilakukan beberapa proses untuk mempersiapkan data agar dapat digunakan oleh algoritma machine learning secara optimal. Proses ini mencakup encoding, pembagian data, dan normalisasi fitur numerik.
 
 1. Menangani outliers
+
    Proses ini adalah bagian penting dari data cleaning. Dengan menerapkan capping, Anda memastikan data lebih stabil dan representatif, terutama untuk keperluan pemodelan statistik atau machine learning.
 1. Train-Test-Split
    Data dibagi menjadi data latih (70%) dan data uji (30%). stratify=y_encoded digunakan agar proporsi label target tetap seimbang antara train dan test set. Memisahkan data untuk evaluasi model agar tidak overfitting.
