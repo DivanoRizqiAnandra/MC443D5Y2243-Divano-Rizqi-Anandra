@@ -140,7 +140,7 @@ Langkah pertama dalam pendekatan ini adalah mengekstrak informasi dari data genr
 
 Hasil dari perhitungan kemiripan tersebut kemudian disusun dalam bentuk matriks similarity, di mana setiap baris dan kolom merepresentasikan judul film, dan nilainya menunjukkan seberapa mirip dua film tersebut. Berdasarkan nilai kemiripan tersebut, sistem dapat menyajikan Top-N film teratas yang paling mirip dengan film yang dipilih oleh pengguna.
 
-### Tabel Top-5 Rekomendasi Film Mirip "Toy Story (1995)"
+**Tabel Top-5 Rekomendasi Film Mirip "Toy Story (1995)"**
 
 **Film Acuan:**  
 **Judul:** Toy Story (1995)  
