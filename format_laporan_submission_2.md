@@ -133,7 +133,7 @@ Berikut adalah hal yang dilakukan pada tahap data preparation:
 ## Modeling
 Pada tahap ini, dibangun dua model sistem rekomendasi menggunakan pendekatan yang berbeda, yaitu Content-Based Filtering dan Collaborative Filtering. Keduanya bertujuan untuk memberikan rekomendasi film yang relevan kepada pengguna, namun dengan metode dan keunggulan yang berbeda. Selain itu, sistem juga dirancang untuk menyajikan Top-N Recommendation, yaitu daftar N film terbaik yang direkomendasikan berdasarkan model yang digunakan.
 
-1. *Content-Based Filtering*
+### *Content-Based Filtering*
 Content-Based Filtering adalah pendekatan sistem rekomendasi yang menyarankan item kepada pengguna berdasarkan kemiripan konten item tersebut. Dalam proyek ini, fitur konten yang digunakan adalah genre dari setiap film.
 
 Langkah pertama dalam pendekatan ini adalah mengekstrak informasi dari data genre menggunakan teknik representasi teks yang disebut TF-IDF (Term Frequency-Inverse Document Frequency). TF-IDF membantu mengidentifikasi kata-kata atau genre yang paling representatif dari setiap film. Setelah itu, digunakan teknik Cosine Similarity untuk menghitung tingkat kemiripan antara film satu dengan lainnya berdasarkan vektor TF-IDF yang telah dibuat.
@@ -166,7 +166,7 @@ Hasil dari perhitungan kemiripan tersebut kemudian disusun dalam bentuk matriks 
 * Jika data genre tidak lengkap atau terlalu umum, hasilnya bisa bias atau tidak akurat.
 
 
-2. *Collaborative Filtering*
+###*Collaborative Filtering*
 Collaborative Filtering berbasis model, yang dalam hal ini diimplementasikan menggunakan jaringan neural (deep learning). Model ini mempelajari representasi (embedding) dari pengguna dan item (film) untuk memprediksi preferensi pengguna terhadap film yang belum mereka tonton.
 Model yang dibangun terdiri dari dua bagian utama:
 * User Embedding: Mewakili setiap pengguna dalam bentuk vektor berdimensi tetap (embedding vector). Vektor ini dipelajari dari data interaksi pengguna terhadap film.
