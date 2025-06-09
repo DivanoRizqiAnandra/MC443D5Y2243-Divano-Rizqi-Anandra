@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Divano Rizqi Anandra
 
 ## Project Overview
 
@@ -15,7 +15,7 @@ Untuk mengatasi keterbatasan masing-masing pendekatan, banyak penelitian menyara
 Berdasarkan latar belakang tersebut, proyek ini mengembangkan sebuah sistem rekomendasi film dengan menerapkan kedua metode utama, yaitu Content-Based Filtering dan Collaborative Filtering. Sistem ini dirancang untuk menguji keefektifan masing-masing pendekatan dalam memberikan saran film yang relevan dan personal kepada pengguna, serta mengevaluasi kelebihan dan kekurangannya dalam skenario dunia nyata.
 
 
-*Mengapa Masalah ini harus diselesaikan*
+### Mengapa Masalah ini harus diselesaikan
 * Tingginya Volume Konten Film
   Pengguna menghadapi kebingungan dalam memilih film karena terlalu banyak pilihan yang tersedia di platform streaming, menyebabkan information overload.
 * Penurunan Kepuasan Pengguna
@@ -30,7 +30,7 @@ Berdasarkan latar belakang tersebut, proyek ini mengembangkan sebuah sistem reko
 Oleh karena itu, diperlukan pendekatan yang lebih komprehensif.
 
 
-*Bagaimana Masalah Ini Harus Diselesaikan*
+### Bagaimana Masalah Ini Harus Diselesaikan
 * Penerapan Content-Based Filtering (CBF)
   Sistem merekomendasikan film berdasarkan fitur konten seperti genre, aktor, atau sinopsis yang mirip dengan film yang disukai pengguna.
 * Penerapan Collaborative Filtering (CF)
@@ -64,11 +64,6 @@ Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
 - Mengembangkan sistem rekomendasi film menggunakan dua pendekatan utama, yaitu Content-Based Filtering dan Collaborative Filtering.
 - Menganalisis cara kerja dan implementasi masing-masing metode dalam menghasilkan rekomendasi yang relevan.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
 ### Solution statements
 - Pengumpulan dan Pemrosesan Data Film
   Menggunakan dataset film publik yang berisi informasi film (judul, genre, tahun rilis) serta rating dari pengguna. Dataset ini akan diproses lebih lanjut untuk membentuk fitur yang relevan dengan kedua pendekatan yang digunakan.
@@ -87,8 +82,6 @@ Variabel-variabel pada Movie Recommendation Data dataset adalah sebagai berikut:
 - movies : Berisi informasi mengenai film yang terdapat dalam file movies.csv. Setiap baris setelah baris header mewakili satu film.
 - ratings : Berisi seluruh data penilaian (rating) yang diberikan oleh pengguna terhadap film. Data ini terdapat dalam file ratings.csv, di mana setiap baris setelah baris header mewakili satu penilaian dari satu pengguna terhadap satu film.
 - tags : Berisi seluruh tag atau label yang diberikan oleh pengguna terhadap film. Data ini terdapat dalam file tags.csv, di mana setiap baris setelah baris header mewakili satu tag yang diterapkan oleh satu pengguna terhadap satu film.
-
-
 - Load data
 - Mengecek nilai unik yang ada pada dataset seperti link movie dari dataset links memiliki 9742, jumlah data movie dari dataset movies memiliki 9742, jumlah data user dari dataset ratings memiliki 610, jumlah rating dari user dari dataset rating memiliki 9742 dan jumlah data movieId yang ada pada dataset tags yaitu 1572.
 - Mengecek dataset links dengan "links.info()" untuk melihat berapa kolom dan baris yang dimiliki oleh dataset links. dan "links.head()" untuk melihat bagaimana 5 baris awal pada dataset links. dataset links memiliki 9742 baris dengan 3 kolom yaitu movieId, imdbId dan tmdbId. movieId adalah pengenal (identifier) untuk film yang digunakan oleh situs MovieLens. Sebagai contoh, film Toy Story memiliki tautan https://movielens.org/movies/1. imdbId adalah pengenal untuk film yang digunakan oleh situs IMDb. Sebagai contoh, film Toy Story memiliki tautan http://www.imdb.com/title/tt0114709/. tmdbId adalah pengenal untuk film yang digunakan oleh situs The Movie Database (TMDb). Sebagai contoh, film Toy Story memiliki tautan https://www.themoviedb.org/movie/862.
@@ -97,9 +90,8 @@ Variabel-variabel pada Movie Recommendation Data dataset adalah sebagai berikut:
 - Mengecek dataset tags dengan "tags.info()" dan "tags.head()". Dataset tags memiliki 3683 baris dan memiliki 4 kolom yaitu userId, movieId, tag dan timestamp. Contoh tag: “funny”, “Highly quotable”, “Boxing story” – menunjukkan sifat subjektif dan bebas
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Berikut adalah hal yang dilakukan pada tahap data preparation:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
 * Menggabungkan movieId Unik dari Seluruh Dataset
   Langkah ini bertujuan untuk mengidentifikasi semua film (movieId) yang tercantum dalam keempat dataset (movies, ratings, tags, dan links). Dengan menggabungkan dan menghapus duplikat, kita memastikan bahwa tidak ada film yang terlewatkan dalam proses analisis.
 * Menggabungkan dataset yang berhubungan dengan user seperti ratings dan user
@@ -231,10 +223,6 @@ Model dilatih selama sejumlah epoch untuk meminimalkan binary crossentropy loss,
 * Mengalami masalah cold start (tidak bisa merekomendasikan untuk pengguna atau film baru).
 * Memerlukan jumlah data interaksi yang cukup besar agar performa optimal.
 * Memerlukan proses training yang relatif lebih kompleks dibanding content-based.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
 
 ## Evaluation
 RMSE adalah salah satu metrik regresi yang mengukur seberapa jauh prediksi model dari nilai sebenarnya (dalam hal ini, rating yang diberikan oleh pengguna).
