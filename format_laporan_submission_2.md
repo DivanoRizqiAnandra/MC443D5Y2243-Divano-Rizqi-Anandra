@@ -166,7 +166,7 @@ Hasil dari perhitungan kemiripan tersebut kemudian disusun dalam bentuk matriks 
 * Jika data genre tidak lengkap atau terlalu umum, hasilnya bisa bias atau tidak akurat.
 
 
-###*Collaborative Filtering*
+### *Collaborative Filtering*
 Collaborative Filtering berbasis model, yang dalam hal ini diimplementasikan menggunakan jaringan neural (deep learning). Model ini mempelajari representasi (embedding) dari pengguna dan item (film) untuk memprediksi preferensi pengguna terhadap film yang belum mereka tonton.
 Model yang dibangun terdiri dari dua bagian utama:
 * User Embedding: Mewakili setiap pengguna dalam bentuk vektor berdimensi tetap (embedding vector). Vektor ini dipelajari dari data interaksi pengguna terhadap film.
