@@ -66,7 +66,7 @@ Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
 - Penerapan Metode Content-Based Filtering
   Sistem akan menganalisis fitur konten dari film, seperti genre, sinopsis, dan kata kunci, untuk membangun profil pengguna. Teknik seperti TF-IDF (Term Frequency-Inverse Document Frequency) atau CountVectorizer akan digunakan untuk merepresentasikan konten film dalam bentuk vektor. Kemudian digunakan cosine similarity untuk mengukur kemiripan antar film berdasarkan konten.
 - Penerapan Metode Collaborative Filtering
-  Sistem akan menganalisis data perilaku pengguna, khususnya pola rating atau interaksi pengguna terhadap film. Item-Based Collaborative Filtering, dengan mengukur kemiripan antar item (film) berdasarkan rating pengguna. Pendekatan ini dapat dibangun dengan teknik seperti Pearson correlation atau matrix factorization (misalnya SVD - Singular Value Decomposition).
+  Sistem akan menganalisis data perilaku pengguna, khususnya pola rating atau interaksi pengguna terhadap film. Item-Based Collaborative Filtering, dengan mengukur kemiripan antar item (film) berdasarkan rating pengguna.
 
   
 ## Data Understanding
