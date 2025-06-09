@@ -47,10 +47,6 @@ Oleh karena itu, diperlukan pendekatan yang lebih komprehensif.
 
 ## Business Understanding
 
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 
 Menjelaskan pernyataan masalah:
