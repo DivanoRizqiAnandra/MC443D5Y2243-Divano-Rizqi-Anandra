@@ -315,10 +315,11 @@ $$
 $$
 
 Keterangan:
+$$
 - \( y_i \): nilai rating aktual dari pengguna ke-\(i\)
 - \( \hat{y}_i \): nilai rating yang diprediksi oleh model untuk pengguna ke-\(i\)
 - \( n \): jumlah total data (jumlah pasangan user-item)
-
+$$
 *Kelebihan RMSE*
 * Sensitif terhadap kesalahan besar (outlier): karena error dikuadratkan, maka prediksi yang sangat meleset akan memberikan penalti besar.
 * Cocok untuk model regresi rating, seperti Collaborative Filtering.
