@@ -202,7 +202,7 @@ Selain itu, model juga mempelajari bias untuk setiap pengguna dan film, yang mem
 
 ### Rekomendasi Film
 
-**ID Pengguna**: 386
+**ID Pengguna**: 140
 
 ---
 
@@ -210,8 +210,11 @@ Selain itu, model juga mempelajari bias untuk setiap pengguna dan film, yang mem
 
 | No. | Judul Film          | Genre               |
 |-----|---------------------|---------------------|
-| 1   | Babe (1995)         | Children &#124; Drama |
-| 2   | Pulp Fiction (1994) | Comedy &#124; Crime &#124; Drama &#124; Thriller |
+| 1   | Fargo (1996)        | Comedy &#124; Crime &#124; Drama &#124; Thriller |
+| 2   | Lawrence of Arabia (1962) | Adventure &#124; Drama &#124; War |
+| 3   | Enemy at the Gates (2001) | Drama &#124; War |
+| 4   | Presumed Innocent (1990) | Crime &#124; Drama &#124; Thriller |
+
 
 ---
 
@@ -219,15 +222,15 @@ Selain itu, model juga mempelajari bias untuk setiap pengguna dan film, yang mem
 
 | No. | Judul Film                                                           | Genre                               |
 |-----|----------------------------------------------------------------------|-------------------------------------|
-| 1   | Umbrellas of Cherbourg, The (Parapluies de Cherbourg, Les) (1964)   | Drama &#124; Musical &#124; Romance     |
-| 2   | Paths of Glory (1957)                                                | Drama &#124; War                     |
+| 1   | Paths of Glory (1957)                                                | Drama &#124; War &#124; Romance     |
+| 2   | Two Family House (2000)                                              | Drama                      |
 | 3   | More (1998)                                                          | Animation &#124; Drama &#124; Sci-Fi &#124; IMAX |
-| 4   | Lady Jane (1986)                                                     | Drama &#124; Romance                |
-| 5   | Awful Truth, The (1937)                                              | Comedy &#124; Romance               |
-| 6   | Come and See (Idi i smotri) (1985)                                   | Drama &#124; War                   |
-| 7   | Midnight Clear, A (1992)                                             | Drama &#124; War                   |
-| 8   | Adam's Rib (1949)                                                    | Comedy &#124; Romance              |
-| 9   | Match Factory Girl, The (Tulitikkutehtaan tyttö) (1990)             | Comedy &#124; Drama                |
+| 4   | Crossing Delancey (1988)                                             | Comedy &#124; Romance                |
+| 5   | Midnight Clear, A (1992)                                             | Drama &#124; War               |
+| 6   | Woman Under the Influence, A (1974)                                  | Drama                    |
+| 7   | Adam's Rib (1949)                                                    | Comedy &#124; Romance                   |
+| 8   | Into the Woods (1991)                                                | Adventure &#124; Comedy &#124; Fantasy &#124; Musical             |
+| 9   | Reefer Madness: The Movie Musical (2005)                             | Comedy &#124; Drama &#124; Musical                |
 | 10  | Paterson                                                             | (no genres listed)                 |
 
 
