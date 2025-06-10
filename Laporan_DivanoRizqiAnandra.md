@@ -251,48 +251,48 @@ Selain itu, model juga mempelajari bias untuk setiap pengguna dan film, yang mem
 ### Precision@k
 Precision mengukur proporsi rekomendasi yang relevan dari seluruh hasil yang diberikan.
 
-\[
+$$
 \text{Precision@k} = \frac{\text{Jumlah Rekomendasi Relevan}}{k}
-\]
+$$
 
 **Contoh:**  
 Jika dari 5 film yang direkomendasikan, hanya 1 yang relevan:
 
-\[
+$$
 \text{Precision@5} = \frac{1}{5} = 0.2000
-\]
+$$
 
 Dari 5 film yang Anda rekomendasikan kepada pengguna, hanya 1 yang relevan. Artinya, 4 film lainnya tidak relevan. Dalam isolasi, presisi 20% terasa rendah. Dari sudut pandang pengguna, 80% dari apa yang mereka lihat tidak sesuai dengan harapan (berdasarkan genre).
 
 ### Recall@k
 Recall mengukur seberapa banyak dari total item relevan yang berhasil ditemukan oleh sistem rekomendasi.
 
-\[
+$$
 \text{Recall@k} = \frac{\text{Jumlah Rekomendasi Relevan}}{\text{Jumlah Total Item Relevan dalam Dataset}}
-\]
+$$
 
 **Contoh:**  
 Jika hanya ada 2 film dalam dataset yang relevan, dan 1 berhasil ditemukan:
 
-\[
+$$
 \text{Recall@5} = \frac{1}{2} = 0.5000
-\]
+$$
 
 Dari 2 film relevan yang ada di seluruh dataset, sistem Anda berhasil menemukan 1 di antaranya di dalam 5 rekomendasi teratas. Ini sebenarnya adalah hasil yang cukup bagus. Menemukan 50% dari semua item yang relevan (ketika jumlahnya sangat sedikit) menunjukkan bahwa algoritma similarity Anda bekerja dengan baik.
 
 ### F1-score@k
 F1-score adalah harmonik rata-rata dari precision dan recall. Cocok untuk menyeimbangkan antara keduanya.
 
-\[
+$$
 \text{F1@k} = \frac{2 \cdot \text{Precision@k} \cdot \text{Recall@k}}{\text{Precision@k} + \text{Recall@k}}
-\]
+$$
 
 **Contoh:**  
 Dengan Precision@5 = 0.2 dan Recall@5 = 0.5:
 
-\[
+$$
 \text{F1@5} = \frac{2 \cdot 0.2 \cdot 0.5}{0.2 + 0.5} = \frac{0.2}{0.7} \approx 0.2857
-\]
+$$
 
 F1-score adalah penengah antara Precision dan Recall. Karena Precision Anda rendah, skor F1-nya pun ikut tertarik ke bawah, meskipun Recall Anda cukup tinggi.
 
