@@ -153,9 +153,9 @@ Untuk mengukur kemiripan antar item dalam CBF, salah satu metode yang paling umu
 
 Cosine Similarity antara dua vektor **A** dan **B** dapat dihitung dengan rumus:
 
-\[
+$$
 \text{Cosine Similarity}(A, B) = \frac{A \cdot B}{\|A\| \cdot \|B\|}
-\]
+$$
 
 Dimana:
 - \( A \cdot B \) adalah dot product antara vektor A dan B
@@ -315,9 +315,9 @@ $$
 $$
 
 Keterangan:
-- \( y_i \): nilai rating aktual dari pengguna ke-\(i\)
-- \( \hat{y}_i \): nilai rating yang diprediksi oleh model untuk pengguna ke-\(i\)
-- \( n \): jumlah total data (jumlah pasangan user-item)
+- $$\( y_i \)$$: nilai rating aktual dari pengguna ke-\(i\)
+- $$\( \hat{y}_i \)$$: nilai rating yang diprediksi oleh model untuk pengguna ke-\(i\)
+- $$\( n \)$$: jumlah total data (jumlah pasangan user-item)
 
 
 *Kelebihan RMSE*
